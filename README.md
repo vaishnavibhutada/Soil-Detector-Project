@@ -107,3 +107,11 @@ Here are some visuals of the Soil Detector Project in action:
 
 ### 🌦 Weather forecast
 ![Settings](screenshots/Screenshot%207.png)
+
+👩‍💻 **Vaishnavi Bhutada**  
+- 🔗 [LinkedIn](linkedin.com/in/vaishnavibhutada514)  
+- 🐙 [GitHub](https://github.com/vaishnavibhutada)  
+
+---
+
+⭐ If you like this project, don’t forget to **star the repo**!  
