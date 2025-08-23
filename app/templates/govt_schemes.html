@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Government Schemes for Farmers</title>
+  <style>
+    body {
+      background: #f9fafb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #2a7a2a;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .scheme-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .scheme-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      transition: transform 0.2s ease;
+    }
+    .scheme-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    }
+    .scheme-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f4d1f;
+      margin-bottom: 10px;
+    }
+    .scheme-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .scheme-card a {
+      margin-top: auto;
+      text-align: right;
+      color: #2a7a2a;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .scheme-card a:hover {
+      border-color: #2a7a2a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Latest Government Schemes for Farmers</h1>
+
+  <div class="scheme-container">
+    {% for scheme in schemes %}
+      <div class="scheme-card">
+        <div class="scheme-name">{{ scheme.name }}</div>
+        <p><strong>Description:</strong> {{ scheme.description }}</p>
+        <p><strong>Benefits:</strong> {{ scheme.benefits }}</p>
+        <p><strong>Eligibility:</strong> {{ scheme.eligibility }}</p>
+        <a href="{{ scheme.link }}" target="_blank">Learn More →</a>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

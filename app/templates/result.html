@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="{{ current_locale }}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ _('Soil Type Prediction Result') }}</title>
+    <style>
+        :root {
+            --themeRed: #c0392b;
+            --gray: #f4f4f4;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f7e3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2c6b2f;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            background-image: url('https://images.unsplash.com/photo-1580713476951-2b0c30bc3d33');
+            background-size: cover;
+            background-position: center;
+        }
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .image-preview {
+            display: block;
+            margin: 0 auto 30px auto;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+        }
+        .result-section {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            color: #2c6b2f;
+            border-bottom: 2px solid #2c6b2f;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+        .soil-health p {
+            margin: 6px 0;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #2c6b2f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+       
+
+        /* Info Summary Cards */
+        #infoSummarySection .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        #infoSummarySection .cards > div {
+            width: 350px;
+            background-color: var(--gray);
+            padding: 20px;
+            color: #444;
+            text-align: center;
+            border-radius: 5px;
+            height: 200px;
+            border: 1px solid #ccc;
+            transition: 0.7s;
+        }
+
+        #infoSummarySection .cards > div:hover {
+            width: 300px;
+            margin-top: -20px;
+            border-color: var(--themeGreen);
+            padding: 55px;
+            height: auto;
+        }
+
+        #infoSummarySection .title {
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #2c6b2f;
+        }
+
+        #infoSummarySection p {
+            font-size: 14px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #infoSummarySection button {
+            border: 1px solid var(--themeGreen);
+            outline: none;
+            padding: 7px 15px;
+            margin-top: 15px;
+            font-size: 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        #infoSummarySection button:hover {
+            background-color: var(--themeGreen);
+          
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .footer a {
+            color: #2c6b2f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ _('Soil Type Prediction Result') }}</h1>
+    </header>
+
+    <div class="container">
+        {% for res in results %}
+            <h2>{{ _(res.soil_type) }} {{ _('Soil') }}</h2>
+
+            <img src="{{ url_for('static', filename='uploads/' ~ res.filename) }}" alt="Uploaded Soil Image" class="image-preview" />
+
+            <div class="result-section">
+                <p><strong>{{ _('Confidence Level') }}:</strong> {{ res.confidence }}%</p>
+            </div>
+
+            <div class="section">
+                <h3>🌾 {{ _('Best Crops to Grow') }}</h3>
+                {% if res.crops %}
+                    <ul>
+                        {% for crop in res.crops %}
+                        <li>{{ crop }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ _('No crop information available.') }}</p>
+                {% endif %}
+            </div>
+
+            <div class="section">
+                <h3>💧 {{ _('Watering Tips') }}</h3>
+                <p>{{ res.watering_tips or _('No watering tips available.') }}</p>
+            </div>
+
+            <div class="section">
+                <h3>🌱 {{ _('Fertilizer Recommendations') }}</h3>
+                {% if res.fertilizers %}
+                    <ul>
+                        {% for fert in res.fertilizers %}
+                        <li>{{ fert }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ _('No fertilizer recommendations available.') }}</p>
+                {% endif %}
+            </div>
+
+            <div class="section soil-health">
+                <h3>🧪 {{ _('Soil Health Analysis') }}</h3>
+                <p><strong>{{ _('Moisture Status') }}:</strong> {{ res.soil_health.moisture or _('Data not available') }}</p>
+                <p><strong>{{ _('Nutrient Deficiency') }}:</strong> {{ res.soil_health.nutrient_deficiency or _('Data not available') }}</p>
+            </div>
+
+            <section id="infoSummarySection">
+                <div class="cards">
+                    <div class="infoBox">
+                        <div class="title">Government Schemes for Farmers</div>
+                        <p>Explore various government schemes that support farmers and boost agriculture.</p>
+                        <button onclick="window.location.href='{{ url_for('govt_schemes_page') }}'">View Schemes</button>
+                    </div>
+
+                   
+
+                    <div class="infoBox">
+                        <div class="title">Agricultural News</div>
+                        <p>Stay updated with the latest news and developments in agriculture.</p>
+                         <button onclick="window.location.href='{{ url_for('agri_news') }}'">View News</button>
+                    </div>
+
+                    <div class="infoBox">
+                        <div class="title">Weather Update</div>
+                        <p>Get the current weather information and recommendations for your area.</p>
+                          <button onclick="window.location.href='https://vaishnavibhutada.github.io/Weather-Forecast/'">View Weather</button>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr style="margin: 40px 0;" />
+        {% endfor %}
+
+        <div style="text-align:center;">
+            <a href="{{ url_for('index') }}">
+                <button>{{ _('Analyze Another Soil Image') }}</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Importing necessary libraries
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import pandas as pd
+
+# Example dataset (You should replace this with your actual dataset)
+data = pd.DataFrame({
+    'pH': [6.5, 5.2, 7.1, 6.8, 5.9],
+    'Moisture': [20, 15, 30, 25, 18],
+    'Organic_Content': [2.1, 1.9, 2.5, 2.3, 2.0],
+    'SoilType': ['Red soil', 'Black soil', 'Red soil', 'Black soil', 'Red soil']
+})
+
+# Features (soil parameters)
+X = data[['pH', 'Moisture', 'Organic_Content']]
+
+# Target (soil type)
+y = data['SoilType']
+
+# Encoding the target labels (soil types)
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+# Train the Decision Tree model
+dt_model = DecisionTreeClassifier()
+dt_model.fit(X_train, y_train)
+
+# Evaluate the model (optional)
+accuracy = dt_model.score(X_test, y_test)
+print(f'Model accuracy: {accuracy}')

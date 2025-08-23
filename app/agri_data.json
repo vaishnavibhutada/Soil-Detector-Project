@@ -1,0 +1,150 @@
+{
+  "Alluvial": {
+    "crops": [
+      {
+        "name": "Wheat",
+        "varieties": ["HD 2967", "PBW 343"],
+        "details": "Best grown in winter, requires moderate water."
+      },
+      {
+        "name": "Rice",
+        "varieties": ["Basmati 370", "PR 126"],
+        "details": "Thrives in waterlogged conditions."
+      },
+      {
+        "name": "Sugarcane",
+        "varieties": ["Co 86032", "Co 92012"],
+        "details": "Requires fertile soil and plenty of water."
+      },
+      {
+        "name": "Cotton",
+        "varieties": ["H 4", "DCH 32"],
+        "details": "Grows well with good drainage and adequate moisture."
+      }
+    ],
+    "fertilizers": [
+      {
+        "type": "Nitrogen",
+        "recommendation": "Apply 60kg/ha during tillering stage."
+      },
+      {
+        "type": "Potassium",
+        "recommendation": "Apply 40kg/ha before sowing."
+      },
+      {
+        "type": "Phosphorus",
+        "recommendation": "Apply 30kg/ha at planting."
+      }
+    ],
+    "watering_tips": "Moderate watering; avoid waterlogging, especially in rice cultivation.",
+    "soil_health": {
+      "moisture_status": "Usually moist but depends on rainfall and irrigation.",
+      "nutrient_deficiency": "Check for nitrogen deficiency; organic compost helps improve soil fertility."
+    }
+  },
+
+  "Black": {
+    "crops": [
+      {
+        "name": "Cotton",
+        "varieties": ["Jayadhar", "LRA 5166"],
+        "details": "Requires deep, moisture-retentive soil ideal for cotton."
+      },
+      {
+        "name": "Maize",
+        "varieties": ["HQPM 1", "Shaktiman 2"],
+        "details": "Thrives in well-drained black soils with adequate moisture."
+      },
+      {
+        "name": "Tobacco",
+        "varieties": ["VT 1158", "G 28"],
+        "details": "Prefers black soil with good nutrient content."
+      }
+    ],
+    "fertilizers": [
+      {
+        "type": "Phosphorus",
+        "recommendation": "Apply 50kg/ha at planting for root development."
+      },
+      {
+        "type": "Nitrogen",
+        "recommendation": "Apply split doses, especially during vegetative growth."
+      }
+    ],
+    "watering_tips": "Water deeply but less frequently to maintain moisture without waterlogging.",
+    "soil_health": {
+      "moisture_status": "Retains moisture well due to clay content.",
+      "nutrient_deficiency": "May lack nitrogen and phosphorus; soil testing recommended."
+    }
+  },
+
+  "Clay": {
+    "crops": [
+      {
+        "name": "Rice",
+        "varieties": ["Basmati 370", "PR 126"],
+        "details": "Ideal for water-intensive crops due to good water retention."
+      },
+      {
+        "name": "Vegetables",
+        "varieties": ["Tomato", "Brinjal", "Capsicum"],
+        "details": "Clay soil retains nutrients well; good for vegetable cultivation with drainage."
+      },
+      {
+        "name": "Wheat",
+        "varieties": ["Lok-1", "PBW 343"],
+        "details": "Requires proper drainage to avoid waterlogging."
+      }
+    ],
+    "fertilizers": [
+      {
+        "type": "Organic Compost",
+        "recommendation": "Enhances soil texture and nutrient availability."
+      },
+      {
+        "type": "Balanced NPK",
+        "recommendation": "Apply based on soil test results; avoid excess nitrogen."
+      }
+    ],
+    "watering_tips": "Ensure good drainage; avoid waterlogging as clay holds water tightly.",
+    "soil_health": {
+      "moisture_status": "Can become waterlogged or dry depending on drainage.",
+      "nutrient_deficiency": "May have potassium deficiency; regular fertilization advised."
+    }
+  },
+
+  "Red": {
+    "crops": [
+      {
+        "name": "Cotton",
+        "varieties": ["H 4", "LRA 5166"],
+        "details": "Requires well-drained soils and consistent moisture."
+      },
+      {
+        "name": "Pulses",
+        "varieties": ["Tur", "Moong"],
+        "details": "Good for pulses with proper soil management."
+      },
+      {
+        "name": "Millets",
+        "varieties": ["Jowar", "Bajra"],
+        "details": "Adapted to red soils with low fertility."
+      }
+    ],
+    "fertilizers": [
+      {
+        "type": "Lime",
+        "recommendation": "Apply to reduce soil acidity and improve nutrient uptake."
+      },
+      {
+        "type": "Organic Manure",
+        "recommendation": "Enhances soil organic matter and fertility."
+      }
+    ],
+    "watering_tips": "Frequent watering needed during dry periods; red soil drains quickly.",
+    "soil_health": {
+      "moisture_status": "Drains quickly and can become dry.",
+      "nutrient_deficiency": "May lack nitrogen and humus; add organic matter regularly."
+    }
+  }
+}
