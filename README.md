@@ -1,7 +1,7 @@
-# 🌱 Soil Detector Project  
+# 🌱 SoilGuard: AI Soil Quality Checker
 
 ## 📌 Overview  
-The **Soil Detector Project** is a Machine Learning-powered web application that predicts **soil type** from an uploaded image and provides:  
+The **SoilGuard: AI Soil Quality Checker** is a Machine Learning-powered web application that predicts **soil type** from an uploaded image and provides:  
 
 ✅ Best crops to grow  
 ✅ Fertilizer recommendations  
